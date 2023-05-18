@@ -5,8 +5,6 @@ main.page {
 
 main.page.auth {
   background: linear-gradient(90deg,#12326e,#03194d);
-  background: url('../public/image/szabadsag-szobor.png') no-repeat top center, linear-gradient(90deg,#12326e,#03194d);
-  background-size: cover;
 }
 
 header.site-header {
@@ -328,7 +326,8 @@ footer.main .copyright-wrapper {
   margin: 32px 0;
 }
 
-.login-wrapper input[type="text"] {
+.login-wrapper input[type="text"],
+.login-wrapper input[type="password"] {
   width: 100%;
 }
 
@@ -359,7 +358,8 @@ footer.main .copyright-wrapper {
   margin-right: 8px;
 }
 
-.input-wrapper input[type="text"] {
+.input-wrapper input[type="text"],
+.input-wrapper input[type="password"] {
   display: block;
   background: #FFFFFF;
   border: 1px solid #DDDDDD;
@@ -756,7 +756,8 @@ label.checkbox + .error-message-inline {
   display: none;
 }
 
-input[type="text"][aria-invalid="true"] {
+input[type="text"][aria-invalid="true"],
+input[type="password"][aria-invalid="true"] {
   border-color: #E5332A;
 }
 
@@ -783,6 +784,12 @@ input[aria-invalid="true"] + label:hover::before {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.auth-logo-wrapper {
+  text-align: center;
+  padding: 80px 0;
+  background: linear-gradient(90deg,#12326e,#03194d);
 }
 
 @media screen and (max-width: 1199px) {

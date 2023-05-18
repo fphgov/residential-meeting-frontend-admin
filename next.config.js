@@ -1,4 +1,4 @@
-const { BACKEND_URL, PUBLIC_HOST, MATOMO_URL, MATOMO_SITE_ID, SITE_KEY } = process.env
+const { BACKEND_URL, PUBLIC_HOST, SITE_KEY } = process.env
 
 module.exports = async (phase, { defaultConfig }) => {
   /**
@@ -11,12 +11,10 @@ module.exports = async (phase, { defaultConfig }) => {
     },
     serverRuntimeConfig: {
       apiUrl: BACKEND_URL,
-      apiNavigation: '/app/api/question/navigation',
     },
     publicRuntimeConfig: {
       publicHost: PUBLIC_HOST,
-      siteKey: SITE_KEY,
-      apiAuth: '/app/api/account/check',
+      apiAuth: '/app/api/login',
     },
     experimental: {
       forceSwcTransforms: true,
@@ -33,7 +31,7 @@ module.exports = async (phase, { defaultConfig }) => {
       return [
         {
           "source": "/",
-          "destination": "/azonositas",
+          "destination": "/bejelentkezes",
           "permanent": false
         }
       ]
