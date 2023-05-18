@@ -1,4 +1,4 @@
-const { BACKEND_URL, PUBLIC_HOST, SITE_KEY } = process.env
+const { BACKEND_URL, PUBLIC_HOST } = process.env
 
 module.exports = async (phase, { defaultConfig }) => {
   /**
