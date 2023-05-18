@@ -1,0 +1,35 @@
+{
+  "name": "residential-meeting-frontend-admin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Residential Meeting admin",
+  "scripts": {
+    "dev": "next dev -p 8080",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "browserslist": [
+    "ie >= 11",
+    "chrome >= 30",
+    "iOS >= 8",
+    "Android >= 4"
+  ],
+  "devDependencies": {
+    "@types/react": "^18.0.31",
+    "@types/store": "^2.0.2"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bootstrap-4-grid": "^3.4.0",
+    "next": "^13.3.1",
+    "next-seo": "^6.0.0",
+    "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "store": "^2.0.12"
+  }
+}
