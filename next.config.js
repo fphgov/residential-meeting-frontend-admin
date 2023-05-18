@@ -14,7 +14,7 @@ module.exports = async (phase, { defaultConfig }) => {
     },
     publicRuntimeConfig: {
       publicHost: PUBLIC_HOST,
-      apiAuth: '/app/api/login',
+      apiAuth: '/admin/api/login',
     },
     experimental: {
       forceSwcTransforms: true,
@@ -24,6 +24,10 @@ module.exports = async (phase, { defaultConfig }) => {
         {
           source: "/app/api/:path*",
           destination: `${BACKEND_URL}/app/api/:path*`,
+        },
+        {
+          source: "/admin/api/:path*",
+          destination: `${BACKEND_URL}/admin/api/:path*`,
         },
       ];
     },
