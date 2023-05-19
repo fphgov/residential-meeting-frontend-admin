@@ -4,11 +4,11 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import axios from "axios"
 import StoreContext from '../src/StoreContext'
-import HeaderSection from '../src/section/HeaderSection'
-import Submit  from "../src/component/form/elements/Submit"
-import InputText  from "../src/component/form/elements/InputText"
+import HeaderLoginSection from '../src/section/HeaderLoginSection'
+import Submit from "../src/component/form/elements/Submit"
+import InputText from "../src/component/form/elements/InputText"
 import ScrollTo from "../src/component/common/ScrollTo"
-import Error  from "../src/component/form/Error"
+import Error from "../src/component/form/Error"
 import ErrorMiniWrapper from "../src/component/form/ErrorMiniWrapper"
 import { rmAllCharForEmail, rmAllCharForName } from '../src/lib/removeSpecialCharacters'
 import bpLogo from '../public/image/bp-emblem-color.svg'
@@ -95,7 +95,7 @@ function AuthPage() {
 
   return (
     <>
-      <HeaderSection showHeaderLine={true} />
+      <HeaderLoginSection showHeaderLine={true} />
 
       <main className="page auth">
         {scroll && document.querySelector('.error-message-inline') ? <ScrollTo element={document.querySelector('.error-message-inline').offsetTop} /> : null}

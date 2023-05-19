@@ -1,7 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export default function Details({ summary, children, startOpen = false, className = '' }){
+export default function Details({ summary, children, startOpen = false, onChange = null, className = '' }){
   const [open, setOpen] = useState(startOpen)
+
+  useEffect(() => {
+    if (typeof onChange === "function") {
+      onChange(open)
+    }
+  }, [open])
 
   return (
     <details className={className} {...(open ? { open: true } : {})}>

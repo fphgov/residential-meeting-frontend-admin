@@ -15,6 +15,8 @@ module.exports = async (phase, { defaultConfig }) => {
     publicRuntimeConfig: {
       publicHost: PUBLIC_HOST,
       apiAuth: '/admin/api/login',
+      apiAccountSearch: '/admin/api/account/search',
+      apiSendAuthCode: '/admin/api/account/send',
     },
     experimental: {
       forceSwcTransforms: true,
