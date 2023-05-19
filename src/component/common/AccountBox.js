@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react"
+import { useEffect, useState } from "react"
 import getConfig from 'next/config'
 import axios from "axios"
 import { useRouter } from 'next/router'
@@ -48,6 +48,7 @@ export default function AccountBox({ account }) {
 
     const data = {
       ...filterData,
+      id: account.id,
     }
 
     axios.post(
@@ -55,8 +56,8 @@ export default function AccountBox({ account }) {
       new URLSearchParams(data).toString()
     )
     .then(response => {
-      if (response.data) {
-        router.push('/azonosito-kuldes')
+      if (response.data && response.data.message) {
+        window.location.reload()
       }
     })
     .catch(error => {
@@ -117,6 +118,7 @@ export default function AccountBox({ account }) {
                   info={null}
                 />
 
+                <ErrorMiniWrapper error={error} id="id" />
                 <ErrorMiniWrapper error={error} id="email" />
               </div>
 
