@@ -10,14 +10,14 @@ env:
   DOCKER_REGISTRY_URL: 'registry.dev.intra.fph.hu'
   DOCKER_BUILD_TARGET: 'production'
   DOCKER_BUILD_FILE: 'docker/dev/Dockerfile'
-  DOCKER_IMAGE: 'docker/residential-meeting-client'
+  DOCKER_IMAGE: 'docker/residential-meeting-admin-client'
   HELM_REPOSITORY_URL: 'nexus.dev.intra.fph.hu'
   HELM_REPOSITORY_NAME: 'helm'
   HELM_REPOSITORY_ALIAS: 'budapest-portal'
   HELM_CHART_NAME: 'bpp-frontend'
   HELM_RELEASE_NAME: 'client'
   HELM_VALUES_FILE: 'values.dev.yaml'
-  APP_NAMESPACE: 'residential-meeting'
+  APP_NAMESPACE: 'residential-meeting-admin'
 
 jobs:
   create-image-tag:
