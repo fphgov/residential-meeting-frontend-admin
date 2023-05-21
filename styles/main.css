@@ -831,7 +831,11 @@ input[aria-invalid="true"] + label:hover::before {
   margin-bottom: 18px;
 }
 
-.account-box.open {
+.account-box:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.account-list .account-box.open {
   background-color: #EEF8FE;
 }
 
