@@ -839,12 +839,35 @@ input[aria-invalid="true"] + label:hover::before {
   margin: 0;
 }
 
+.account-box summary p {
+  padding: 8px 0 0 0;
+  margin: 0;
+}
+
 .account-box form {
   margin-top: 18px;
 }
 
+.account-box hr {
+  background: #DDDDDD;
+  margin: 18px 0 0 0;
+}
+
 .details-inner {
   margin: 18px 0;
+}
+
+.account-box .input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-box .button-loader {
+  display: flex;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1199px) {

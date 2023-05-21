@@ -24,7 +24,6 @@ function AuthSendPage() {
     'zip_code': '',
     'name': '',
     'address': '',
-    'house_number': '',
   })
 
   const clearErrorItem = (inputName) => {
@@ -48,6 +47,7 @@ function AuthSendPage() {
       return
     }
 
+    setAccounts([])
     setScroll(false)
     setError(null)
     setLoading(true)
@@ -98,7 +98,7 @@ function AuthSendPage() {
           <div className="container">
             <h5>Azonosító küldése</h5>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis enim turpis, vel laoreet lacus pellentesque vitae. Mauris facilisis condimentum nisi, id posuere sapien tincidunt vel. Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+            <p>Ezen a felületen kereshető ki a Lakógyűlésben használt egyedi azonosító kód. Az irányítószám, vezetéknév megadása kötelező, a cím opciónális. A cím csak közterületet és házszámot tartalmaz. Ha a találatok száma eléri az 50 darabot, a keresés automatikusan visszautasításra kerül, pontosítás szükséges. Minden keresés, e-mail és PDF nyomtatás naplózásra kerül.</p>
           </div>
         </div>
 
@@ -113,8 +113,8 @@ function AuthSendPage() {
                     <InputText
                       id="zip_code"
                       name="zip_code"
-                      label="Irányítószám:"
-                      placeholder="Irányítószám"
+                      label="Irányítószám: *"
+                      placeholder=""
                       value={filterData.zip_code}
                       onChange={handleChangeInput}
                       aria-invalid={error && error['zip_code'] ? true: false}
@@ -130,8 +130,8 @@ function AuthSendPage() {
                     <InputText
                       id="name"
                       name="name"
-                      label="Vezetéknév:"
-                      placeholder="Vezetéknév"
+                      label="Vezetéknév: *"
+                      placeholder=""
                       value={filterData.name}
                       onChange={handleChangeInput}
                       aria-invalid={error && error['name'] ? true: false}
@@ -147,8 +147,8 @@ function AuthSendPage() {
                     <InputText
                       id="address"
                       name="address"
-                      label="Utcanév:"
-                      placeholder="Utcanév"
+                      label="Cím:"
+                      placeholder=""
                       value={filterData.address}
                       onChange={handleChangeInput}
                       aria-invalid={error && error['address'] ? true: false}
@@ -158,23 +158,6 @@ function AuthSendPage() {
                     />
 
                     <ErrorMiniWrapper error={error} id="address" />
-                  </div>
-
-                  <div className="input-wrapper">
-                    <InputText
-                      id="house_number"
-                      name="house_number"
-                      label="Házszám:"
-                      placeholder="Házszám"
-                      value={filterData.house_number}
-                      onChange={handleChangeInput}
-                      aria-invalid={error && error['house_number'] ? true: false}
-                      aria-required={false}
-                      longInfo={null}
-                      info={null}
-                    />
-
-                    <ErrorMiniWrapper error={error} id="house_number" />
                   </div>
 
                   <div className="search-control">

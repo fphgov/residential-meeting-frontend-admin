@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import getConfig from 'next/config'
 import axios from "axios"
-import { useRouter } from 'next/router'
 import Details from "./Details"
 import Submit from "../../component/form/elements/Submit"
 import InputText from "../../component/form/elements/InputText"
@@ -11,8 +10,6 @@ import Error from "../../component/form/Error"
 import ErrorMiniWrapper from "../../component/form/ErrorMiniWrapper"
 
 export default function AccountBox({ account }) {
-  const router = useRouter()
-
   const { publicRuntimeConfig } = getConfig()
 
   const [ open, setOpen ] = useState(false)
@@ -80,9 +77,9 @@ export default function AccountBox({ account }) {
     })
   }
 
-  useEffect(() => {
-
-  }, [])
+  const miniProp = (name, value) => {
+    return value ? `${value} ${name}. ` : ''
+  }
 
   return (
     <div className={`account-box${open ? ' open' : ''}`}>
@@ -91,38 +88,42 @@ export default function AccountBox({ account }) {
       <Details summary={<>
         <div>
           <h6>{account.fullName}</h6>
-          <p>{account.address} {account.houseNumber}</p>
+          <p>{account.address} // {miniProp('ép', account.building) + miniProp('lph', account.starway) + miniProp('e', account.floor) + miniProp('a', account.door)}</p>
         </div>
       </>} onChange={(o) => { setOpen(o) }}>
 
         <hr />
 
         <div className="details-inner">
-          <h6>Azonosító küldése</h6>
+          <h6><b>Azonosító küldése</b></h6>
 
           {error ? <Error message={error} /> : null}
 
           <form onSubmit={submitAccount}>
             <fieldset>
-              <div className="input-wrapper">
-                <InputText
-                  id="email"
-                  name="email"
-                  label="E-mail cím:"
-                  placeholder=""
-                  value={filterData.email}
-                  onChange={handleChangeEmailInput}
-                  aria-invalid={error && error['email'] ? true: false}
-                  aria-required={false}
-                  longInfo={null}
-                  info={null}
-                />
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="input-wrapper">
+                    <InputText
+                      id="email"
+                      name="email"
+                      label="E-mail cím:"
+                      placeholder=""
+                      value={filterData.email}
+                      onChange={handleChangeEmailInput}
+                      aria-invalid={error && error['email'] ? true: false}
+                      aria-required={false}
+                      longInfo={null}
+                      info={null}
+                    />
 
-                <ErrorMiniWrapper error={error} id="id" />
-                <ErrorMiniWrapper error={error} id="email" />
+                    <ErrorMiniWrapper error={error} id="id" />
+                    <ErrorMiniWrapper error={error} id="email" />
+                  </div>
+                </div>
               </div>
 
-              <Submit label="Küldés" loading={loading} disabled={false} />
+              <Submit label="Küldés" loading={true} disabled={false} />
             </fieldset>
           </form>
         </div>
