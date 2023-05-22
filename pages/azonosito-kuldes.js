@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import getConfig from 'next/config'
+import { getCookie } from 'cookies-next'
 import HeaderSection from '../src/section/HeaderLoginSection'
 import axios from "axios"
 import StoreContext from '../src/StoreContext'
@@ -11,7 +12,7 @@ import Error  from "../src/component/form/Error"
 import ErrorMiniWrapper from "../src/component/form/ErrorMiniWrapper"
 import AccountBox  from "../src/component/common/AccountBox"
 
-function AuthSendPage() {
+function AuthSendPage({ token }) {
   const context = useContext(StoreContext)
 
   const { publicRuntimeConfig } = getConfig()
@@ -56,11 +57,18 @@ function AuthSendPage() {
       ...filterData,
     }
 
-    context.storeSave('form', 'data', filterData)
+    const config = {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+      }
+    }
 
     axios.post(
       publicRuntimeConfig.apiAccountSearch,
-      new URLSearchParams(data).toString()
+      new URLSearchParams(data).toString(),
+      config
+
     )
     .then(response => {
       if (response.data && response.data.data) {
@@ -177,6 +185,26 @@ function AuthSendPage() {
       </main>
     </>
   )
+}
+
+export async function getServerSideProps({ req, res }) {
+  const token = getCookie('token', { req, res })
+
+  if (! token) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/bejelentkezes",
+      },
+      props: {},
+    }
+  }
+
+  return {
+    props: {
+      token
+    }
+  }
 }
 
 export default AuthSendPage

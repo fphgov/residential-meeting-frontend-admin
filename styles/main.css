@@ -874,6 +874,11 @@ input[aria-invalid="true"] + label:hover::before {
   justify-content: center;
 }
 
+.account-box .button-wrapper {
+  margin: 0;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 1199px) {
   .vote-navigation ul > li {
     margin: 0 0 8px;

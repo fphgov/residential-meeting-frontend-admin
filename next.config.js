@@ -17,6 +17,7 @@ module.exports = async (phase, { defaultConfig }) => {
       apiAuth: '/admin/api/login',
       apiAccountSearch: '/admin/api/account/search',
       apiSendAuthCode: '/admin/api/account/send',
+      apiPrintAuthCode: '/admin/api/account/print',
     },
     experimental: {
       forceSwcTransforms: true,

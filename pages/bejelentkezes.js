@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import getConfig from 'next/config'
 import { useRouter } from 'next/router'
+import { setCookies } from 'cookies-next'
 import Image from 'next/image'
 import axios from "axios"
 import StoreContext from '../src/StoreContext'
@@ -69,7 +70,9 @@ function AuthPage() {
       new URLSearchParams(data).toString()
     )
     .then(response => {
-      if (response.data) {
+      if (response.data && response.data.token) {
+        setCookies('token', response.data.token);
+
         router.push('/azonosito-kuldes')
       }
     })
@@ -166,6 +169,14 @@ function AuthPage() {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps({ req, res }) {
+  setCookies('token', '', { req, res, maxAge: 60 * 6 * 24 })
+
+  return {
+    props: {}
+  }
 }
 
 export default AuthPage

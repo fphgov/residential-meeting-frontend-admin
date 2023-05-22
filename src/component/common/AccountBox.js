@@ -77,6 +77,54 @@ export default function AccountBox({ account }) {
     })
   }
 
+  const handlePrint = (e) => {
+    e.preventDefault()
+
+    alert('Egyelőre nem elérhető funkció')
+
+    return
+
+    if (loading) {
+      return
+    }
+
+    setError(null)
+    setLoading(true)
+
+    const data = {
+      ...filterData,
+      id: account.id,
+    }
+
+    axios.post(
+      publicRuntimeConfig.apiPrintAuthCode,
+      new URLSearchParams(data).toString()
+    )
+    .then(response => {
+      if (response.data) {
+
+      }
+    })
+    .catch(error => {
+      if (error.response && error.response.status === 403) {
+        setError('Google reCapcha ellenőrzés sikertelen. Kérjük frissíts rá az oldalra.')
+        setScroll(true)
+      } else if (error.response && error.response.data && error.response.data.error) {
+        setError(error.response.data.error)
+        setScroll(true)
+      } else if (error.response && error.response.data && error.response.data.errors) {
+        setError(error.response.data.errors)
+        setScroll(true)
+      } else {
+        setError('Váratlan hiba történt, kérünk próbáld később')
+        setScroll(true)
+      }
+    })
+    .finally(() => {
+      setLoading(false)
+    })
+  }
+
   const miniProp = (name, value) => {
     return value ? `${value} ${name}. ` : ''
   }
@@ -123,7 +171,11 @@ export default function AccountBox({ account }) {
                 </div>
               </div>
 
-              <Submit label="Küldés" loading={true} disabled={false} />
+              <div className="button-wrapper">
+                <Submit label="Küldés" loading={loading} disabled={false} />
+
+                <button type="button" className="btn btn-secondary" onClick={handlePrint}>Nyomtatás (PDF)</button>
+              </div>
             </fieldset>
           </form>
         </div>
