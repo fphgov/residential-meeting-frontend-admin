@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import getConfig from 'next/config'
 import { getCookie } from 'cookies-next'
-import HeaderSection from '../src/section/HeaderLoginSection'
+import HeaderSection from '../src/section/HeaderSection'
 import axios from "axios"
 import StoreContext from '../src/StoreContext'
 import InputText from "../src/component/form/elements/InputText"

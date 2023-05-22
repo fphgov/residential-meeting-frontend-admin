@@ -55,7 +55,8 @@ function HeaderSection({ position, showHeaderLine = false }) {
                   <div className={`navigation-wrapper ${openMenu ? 'open' : ''}`}>
                     <div className="container">
                       <ul className={openMenu ? '' : ''}>
-                        <li><Link href="/bejelentkezes" onClick={() => { setOpenMenu(false) }}><span>Bejelentkezés</span></Link></li>
+                        <li><Link href="/azonosito-kuldes" onClick={() => { setOpenMenu(false) }}><span>Azonosító küldése</span></Link></li>
+                        <li><Link href="/kijelentkezes" onClick={() => { setOpenMenu(false) }}><span>Kijelentkezés</span></Link></li>
                       </ul>
                     </div>
                   </div>

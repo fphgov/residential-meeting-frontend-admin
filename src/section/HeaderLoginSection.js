@@ -25,13 +25,6 @@ function HeaderLoginSection({ position, showHeaderLine = false }) {
     setOpenMenu(state => !state)
   }
 
-  const logout = (e) => {
-    e.preventDefault()
-
-    setOpenMenu(false)
-    //TODO - Remove localstorage
-  }
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, true)
 
@@ -62,8 +55,7 @@ function HeaderLoginSection({ position, showHeaderLine = false }) {
                   <div className={`navigation-wrapper ${openMenu ? 'open' : ''}`}>
                     <div className="container">
                       <ul className={openMenu ? '' : ''}>
-                        <li><Link href="/azonosito-kuldes" onClick={() => { setOpenMenu(false) }}><span>Azonosító küldése</span></Link></li>
-                        <li><a onClick={logout}><span>Kijelentkezés</span></a></li>
+                        <li><Link href="/bejelentkezes" onClick={() => { setOpenMenu(false) }}><span>Bejelentkezés</span></Link></li>
                       </ul>
                     </div>
                   </div>
