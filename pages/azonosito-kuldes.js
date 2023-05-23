@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import getConfig from 'next/config'
+import { useRouter } from 'next/router'
 import { getCookie } from 'cookies-next'
 import HeaderSection from '../src/section/HeaderSection'
 import axios from "axios"
@@ -14,6 +15,7 @@ import AccountBox  from "../src/component/common/AccountBox"
 
 function AuthSendPage({ token }) {
   const context = useContext(StoreContext)
+  const router = useRouter()
 
   const { publicRuntimeConfig } = getConfig()
 
@@ -79,6 +81,8 @@ function AuthSendPage({ token }) {
       if (error.response && error.response.status === 403) {
         setError('Google reCapcha ellenőrzés sikertelen. Kérjük frissíts rá az oldalra.')
         setScroll(true)
+      } else if (error.response && error.response.status === 401) {
+        router.push('/kijelentkezes')
       } else if (error.response && error.response.data && error.response.data.error) {
         setError(error.response.data.error)
         setScroll(true)
