@@ -1,10 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import getConfig from 'next/config'
 import { useRouter } from 'next/router'
 import { getCookie } from 'cookies-next'
 import HeaderSection from '../src/section/HeaderSection'
 import axios from "axios"
-import StoreContext from '../src/StoreContext'
 import InputText from "../src/component/form/elements/InputText"
 import Submit from "../src/component/form/elements/Submit"
 import ScrollTo from "../src/component/common/ScrollTo"
@@ -14,7 +13,6 @@ import ErrorMiniWrapper from "../src/component/form/ErrorMiniWrapper"
 import AccountBox  from "../src/component/common/AccountBox"
 
 function AuthSendPage({ token }) {
-  const context = useContext(StoreContext)
   const router = useRouter()
 
   const { publicRuntimeConfig } = getConfig()
