@@ -77,7 +77,7 @@ function AuthSendPage({ token }) {
     })
     .catch(error => {
       if (error.response && error.response.status === 403) {
-        setError('Google reCapcha ellenőrzés sikertelen. Kérjük frissíts rá az oldalra.')
+        setError('Google reCapcha ellenőrzés sikertelen. Kérjük, frissítsd az oldalt!')
         setScroll(true)
       } else if (error.response && error.response.status === 401) {
         router.push('/kijelentkezes')
@@ -108,7 +108,7 @@ function AuthSendPage({ token }) {
           <div className="container">
             <h5>Azonosító küldése</h5>
 
-            <p>Ezen a felületen kereshető ki a Lakógyűlésben használt egyedi azonosító kód. Az irányítószám, vezetéknév megadása kötelező, a cím opciónális. A cím csak közterületet és házszámot tartalmaz. Ha a találatok száma eléri az 50 darabot, a keresés automatikusan visszautasításra kerül, pontosítás szükséges. Minden keresés, e-mail és PDF nyomtatás naplózásra kerül.</p>
+            <p>Ezen a felületen kereshető ki a Lakógyűlésben használt egyedi azonosító kód. Az irányítószám, vezetéknév megadása kötelező, a cím opciónális. A cím csak közterületet és házszámot tartalmaz. Ha a találatok száma eléri az 50 darabot, a keresés automatikusan visszautasításra kerül, pontosítás szükséges. Minden keresés, e-mail küldés és PDF nyomtatás naplózásra kerül.</p>
           </div>
         </div>
 
