@@ -29,7 +29,7 @@ ingress:
         - path: /
           pathType: Prefix
   tls:
-    - secretName: wildcard-dev-intra-fph-hu-tls
+    - secretName: wildcard-prod-intra-fph-hu-tls
       hosts:
         - lakogyules-admin.prod.intra.fph.hu
 
