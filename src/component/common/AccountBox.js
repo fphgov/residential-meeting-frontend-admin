@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useRouter } from 'next/router'
 import getConfig from 'next/config'
 import axios from "axios"
 import Details from "./Details"
@@ -8,14 +9,21 @@ import ScrollTo from "../../component/common/ScrollTo"
 import { rmAllCharForEmail } from '../../lib/removeSpecialCharacters'
 import Error from "../../component/form/Error"
 import ErrorMiniWrapper from "../../component/form/ErrorMiniWrapper"
+import dynamic from 'next/dynamic';
+
+const DynamicButton = dynamic(() => import('./PrintButton'), {
+  ssr: false,
+});
 
 export default function AccountBox({ account }) {
+  const router = useRouter()
   const { publicRuntimeConfig } = getConfig()
 
   const [ open, setOpen ] = useState(false)
   const [ loading, setLoading ] = useState(false)
   const [ scroll, setScroll ] = useState(false)
   const [ error, setError ] = useState(null)
+  const [ pdfBlob, setPdfBlob ] = useState(null)
   const [ filterData, setFilterData ] = useState({
     'id': '',
     'email': '',
@@ -61,6 +69,8 @@ export default function AccountBox({ account }) {
       if (error.response && error.response.status === 403) {
         setError('Google reCapcha ellenőrzés sikertelen. Kérjük frissíts rá az oldalra.')
         setScroll(true)
+      } else if (error.response && error.response.status === 401) {
+        router.push('/kijelentkezes')
       } else if (error.response && error.response.data && error.response.data.error) {
         setError(error.response.data.error)
         setScroll(true)
@@ -77,13 +87,7 @@ export default function AccountBox({ account }) {
     })
   }
 
-  const handlePrint = (e) => {
-    e.preventDefault()
-
-    alert('Egyelőre nem elérhető funkció')
-
-    return
-
+  const handlePrint = () => {
     if (loading) {
       return
     }
@@ -100,15 +104,17 @@ export default function AccountBox({ account }) {
       publicRuntimeConfig.apiPrintAuthCode,
       new URLSearchParams(data).toString()
     )
-    .then(response => {
+    .then(async (response) => {
       if (response.data) {
-
+        setPdfBlob(response.data)
       }
     })
     .catch(error => {
       if (error.response && error.response.status === 403) {
         setError('Google reCapcha ellenőrzés sikertelen. Kérjük frissíts rá az oldalra.')
         setScroll(true)
+      } else if (error.response && error.response.status === 401) {
+        router.push('/kijelentkezes')
       } else if (error.response && error.response.data && error.response.data.error) {
         setError(error.response.data.error)
         setScroll(true)
@@ -174,7 +180,7 @@ export default function AccountBox({ account }) {
               <div className="button-wrapper">
                 <Submit label="Küldés" loading={loading} disabled={false} />
 
-                <button type="button" className="btn btn-secondary" onClick={handlePrint}>Nyomtatás (PDF)</button>
+                <DynamicButton className="btn btn-secondary" onClickEvent={handlePrint} blob={pdfBlob}>Nyomtatás (PDF)</DynamicButton>
               </div>
             </fieldset>
           </form>
