@@ -30,21 +30,21 @@ const MyApp = ({ Component, pageProps }) => {
 
   return <>
     <NextSeo
-      title="Budapesti Lakógyűlés szavazás"
-      titleTemplate="Budapesti Lakógyűlés szavazás"
-      defaultTitle="Budapesti Lakógyűlés szavazás"
+      title="Budapesti Lakógyűlés - admin"
+      titleTemplate="Budapesti Lakógyűlés - admin"
+      defaultTitle="Budapesti Lakógyűlés - admin"
       description=""
       canonical="https://lakogyules-admin.dev.intra.fph.hu/"
       openGraph={{
         url: "https://lakogyules-admin.dev.intra.fph.hu/",
-        title: "Budapesti Lakógyűlés szavazás",
+        title: "Budapesti Lakógyűlés - admin",
         description: "",
         images: [
           {
             url: "/og-image.jpg",
             width: 800,
             height: 420,
-            alt: "Budapesti Lakógyűlés szavazás",
+            alt: "Budapesti Lakógyűlés - admin",
           },
         ],
       }}

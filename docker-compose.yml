@@ -10,9 +10,9 @@ services:
     volumes:
       - ./:/app
     networks:
-      - residential-meeting
+      - residential-meeting-admin
 
 networks:
-  residential-meeting:
-    name: residential-meeting_default
+  residential-meeting-admin:
+    name: residential-meeting-admin_default
     external: true

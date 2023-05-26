@@ -50,7 +50,6 @@ div#__next > .page {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
@@ -64,6 +63,20 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 32px;
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 30px;
+  margin: 0;
+}
+
+h6 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  margin: 0;
 }
 
 a {

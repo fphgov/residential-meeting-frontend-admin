@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: registry.prod.intra.fph.hu/docker/residential-meeting-client
+  repository: registry.prod.intra.fph.hu/docker/residential-meeting-admin-client
   pullPolicy: Always
   tag: "latest"
 
@@ -24,14 +24,14 @@ ingress:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/preserve-trailing-slash: "true"
   hosts:
-    - host: lakogyules-szavazas.budapest.hu
+    - host: lakogyules-admin.budapest.hu
       paths:
         - path: /
           pathType: Prefix
   tls:
     - secretName: wildcard-budapest-hu-tls
       hosts:
-        - lakogyules-szavazas.budapest.hu
+        - lakogyules-admin.budapest.hu
 
 
 resources:

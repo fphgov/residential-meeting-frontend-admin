@@ -5,8 +5,6 @@ main.page {
 
 main.page.auth {
   background: linear-gradient(90deg,#12326e,#03194d);
-  background: url('../public/image/szabadsag-szobor.png') no-repeat top center, linear-gradient(90deg,#12326e,#03194d);
-  background-size: cover;
 }
 
 header.site-header {
@@ -56,6 +54,7 @@ header.transparent-header {
   letter-spacing: 0.5px;
   text-decoration: none;
   position: relative;
+  cursor: pointer;
 }
 
 .main-navigation ul > li > a > span {
@@ -328,7 +327,8 @@ footer.main .copyright-wrapper {
   margin: 32px 0;
 }
 
-.login-wrapper input[type="text"] {
+.login-wrapper input[type="text"],
+.login-wrapper input[type="password"] {
   width: 100%;
 }
 
@@ -359,7 +359,8 @@ footer.main .copyright-wrapper {
   margin-right: 8px;
 }
 
-.input-wrapper input[type="text"] {
+.input-wrapper input[type="text"],
+.input-wrapper input[type="password"] {
   display: block;
   background: #FFFFFF;
   border: 1px solid #DDDDDD;
@@ -756,7 +757,8 @@ label.checkbox + .error-message-inline {
   display: none;
 }
 
-input[type="text"][aria-invalid="true"] {
+input[type="text"][aria-invalid="true"],
+input[type="password"][aria-invalid="true"] {
   border-color: #E5332A;
 }
 
@@ -783,6 +785,102 @@ input[aria-invalid="true"] + label:hover::before {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.auth-logo-wrapper {
+  text-align: center;
+  padding: 80px 0;
+  background: linear-gradient(90deg,#12326e,#03194d);
+}
+
+.info-box {
+  background-color: #EEF8FE;
+  padding: 32px 0;
+}
+
+.search-box {
+  background-color: #C5E9F5;
+  padding: 18px 0;
+}
+
+.input-wrapper-inline {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper-inline > div {
+  margin: 0 8px;
+}
+
+.input-wrapper-inline > div:first-of-type {
+  margin-left: 0;
+}
+
+.search-control {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.account-list {
+  margin: 58px 0;
+}
+
+.account-box {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 50, 110, 0.12);
+  border-radius: 6px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.account-box:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.account-list .account-box.open {
+  background-color: #EEF8FE;
+}
+
+.account-box summary {
+  margin: 0;
+}
+
+.account-box summary p {
+  padding: 8px 0 0 0;
+  margin: 0;
+}
+
+.account-box form {
+  margin-top: 18px;
+}
+
+.account-box hr {
+  background: #DDDDDD;
+  margin: 18px 0 0 0;
+}
+
+.details-inner {
+  margin: 18px 0;
+}
+
+.account-box .input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-box .button-loader {
+  display: flex;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+}
+
+.account-box .button-wrapper {
+  margin: 0;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 1199px) {

@@ -19,7 +19,7 @@ class MyDocument extends Document {
           <meta name="description" content="" />
 
           <meta property="og:type" content="website" />
-          <meta name="og:title" content="Budapest Lakógyűlés" />
+          <meta name="og:title" content="Budapest Lakógyűlés - admin" />
           <meta name="og:description" content="" />
           <meta name="og:image" content="https://lakogyules-szavazas.budapest.hu/image/og-image.jpg" />
 
@@ -27,10 +27,10 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5" />
 
-          <meta name="application-name" content="Budapest Lakógyűlés" />
+          <meta name="application-name" content="Budapest Lakógyűlés - admin" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-          <meta name="apple-mobile-web-app-title" content="Budapest Lakógyűlés" />
+          <meta name="apple-mobile-web-app-title" content="Budapest Lakógyűlés - admin" />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-config" content="/browserconfig.xml" />

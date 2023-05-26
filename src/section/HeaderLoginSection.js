@@ -5,7 +5,7 @@ import Link from 'next/link'
 import headerLogo from '../../public/image/bp-residential-header.svg'
 import HamburgerMenu from '../component/HamburgerMenu'
 
-function HeaderSection({ position, showHeaderLine = false }) {
+function HeaderLoginSection({ position, showHeaderLine = false }) {
   const router = useRouter()
 
   const { asPath } = router
@@ -55,8 +55,7 @@ function HeaderSection({ position, showHeaderLine = false }) {
                   <div className={`navigation-wrapper ${openMenu ? 'open' : ''}`}>
                     <div className="container">
                       <ul className={openMenu ? '' : ''}>
-                        <li><Link href="/azonosito-kuldes" onClick={() => { setOpenMenu(false) }}><span>Azonosító küldése</span></Link></li>
-                        <li><Link href="/kijelentkezes" onClick={() => { setOpenMenu(false) }}><span>Kijelentkezés</span></Link></li>
+                        <li><Link href="/bejelentkezes" onClick={() => { setOpenMenu(false) }}><span>Bejelentkezés</span></Link></li>
                       </ul>
                     </div>
                   </div>
@@ -71,4 +70,4 @@ function HeaderSection({ position, showHeaderLine = false }) {
   )
 }
 
-export default HeaderSection
+export default HeaderLoginSection
