@@ -21,6 +21,7 @@ function AuthSendPage({ token }) {
   const [ scroll, setScroll ] = useState(false)
   const [ error, setError ] = useState(null)
   const [ accounts, setAccounts ] = useState([])
+  const [ info, setInfo ] = useState('')
   const [ filterData, setFilterData ] = useState({
     'zip_code': '',
     'name': '',
@@ -72,7 +73,11 @@ function AuthSendPage({ token }) {
     )
     .then(response => {
       if (response.data && response.data.data) {
-        setAccounts(response.data.data)
+        if (response.data.data.lenght > 0) {
+          setAccounts(response.data.data)
+        } else {
+          setInfo("Nincs keresési találat.")
+        }
       }
     })
     .catch(error => {
@@ -182,6 +187,7 @@ function AuthSendPage({ token }) {
         <div className="account-list">
           <div className="container">
             {accounts ? accounts.map((account) => <AccountBox key={account.id} account={account} />) : ''}
+            {info ? info : ''}
           </div>
         </div>
       </main>

@@ -813,6 +813,10 @@ input[aria-invalid="true"] + label:hover::before {
   margin: 0 8px;
 }
 
+.input-wrapper-inline > div:first-of-type {
+  margin-left: 0;
+}
+
 .search-control {
   flex: 1;
   display: flex;
