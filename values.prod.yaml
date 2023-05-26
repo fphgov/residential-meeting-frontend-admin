@@ -24,14 +24,14 @@ ingress:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/preserve-trailing-slash: "true"
   hosts:
-    - host: lakogyules-admin.budapest.hu
+    - host: lakogyules-admin.prod.intra.fph.hu
       paths:
         - path: /
           pathType: Prefix
   tls:
-    - secretName: wildcard-budapest-hu-tls
+    - secretName: wildcard-dev-intra-fph-hu-tls
       hosts:
-        - lakogyules-admin.budapest.hu
+        - lakogyules-admin.prod.intra.fph.hu
 
 
 resources:
