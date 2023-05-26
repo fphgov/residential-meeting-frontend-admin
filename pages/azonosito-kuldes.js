@@ -73,7 +73,7 @@ function AuthSendPage({ token }) {
     )
     .then(response => {
       if (response.data && response.data.data) {
-        if (response.data.data.lenght > 0) {
+        if (response.data.data.length > 0) {
           setAccounts(response.data.data)
         } else {
           setInfo("Nincs keresési találat.")
