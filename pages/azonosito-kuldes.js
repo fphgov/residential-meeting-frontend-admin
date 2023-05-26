@@ -49,6 +49,7 @@ function AuthSendPage({ token }) {
       return
     }
 
+    setInfo('')
     setAccounts([])
     setScroll(false)
     setError(null)
