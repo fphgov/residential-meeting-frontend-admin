@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
 import headerLogo from '../../public/image/bp-residential-header.svg'
 import HamburgerMenu from '../component/HamburgerMenu'
 
 function HeaderSection({ position, showHeaderLine = false }) {
-  const router = useRouter()
-
-  const { asPath } = router
-
   const [fixed, setFixed] = useState(false)
   const [openMenu, setOpenMenu] = useState(false)
 
@@ -35,7 +30,7 @@ function HeaderSection({ position, showHeaderLine = false }) {
 
   return (
     <>
-      <header className={`site-header${showHeaderLine ? ' header-line' : ''}${fixed ? ' fixed-header' : ''}${position ? 'relative-header' : ''}${asPath === '/bejelentkezes' ? ' transparent-header' : ''}`}>
+      <header className={`site-header${showHeaderLine ? ' header-line' : ''}${fixed ? ' fixed-header' : ''}${position ? 'relative-header' : ''}`}>
         <div className="container">
           <div className="site-header-inner">
             <div className="row flex-center">
@@ -56,6 +51,7 @@ function HeaderSection({ position, showHeaderLine = false }) {
                     <div className="container">
                       <ul className={openMenu ? '' : ''}>
                         <li><Link href="/azonosito-kuldes" onClick={() => { setOpenMenu(false) }}><span>Azonosító küldése</span></Link></li>
+                        <li><Link href="/elutasitas-kuldes" onClick={() => { setOpenMenu(false) }}><span>Elutasítás küldése</span></Link></li>
                         <li><Link href="/kijelentkezes" onClick={() => { setOpenMenu(false) }}><span>Kijelentkezés</span></Link></li>
                       </ul>
                     </div>
