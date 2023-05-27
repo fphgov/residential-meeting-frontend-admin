@@ -8,7 +8,7 @@ import InputText from "../src/component/form/elements/InputText"
 import Select from "../src/component/form/elements/Select"
 import Submit from "../src/component/form/elements/Submit"
 import ScrollTo from "../src/component/common/ScrollTo"
-import { rmAllCharForName } from '../src/lib/removeSpecialCharacters'
+import { rmAllCharForName, rmAllCharForEmail } from '../src/lib/removeSpecialCharacters'
 import Error  from "../src/component/form/Error"
 import ErrorMiniWrapper from "../src/component/form/ErrorMiniWrapper"
 
@@ -37,6 +37,12 @@ function RejectSendPage({ token }) {
     const value = e.target.type === 'checkbox' ? e.target.checked : rmAllCharForName(e.target.value)
 
     setFilterData({ ...filterData, [e.target.name]: value })
+  }
+
+  const handleChangeEmailInput = (e) => {
+    clearErrorItem(e.target.name)
+
+    setFilterData({ ...filterData, [e.target.name]: rmAllCharForEmail(e.target.value) })
   }
 
   const sendForm = (e) => {
@@ -146,7 +152,7 @@ function RejectSendPage({ token }) {
                       label="E-mail cím: *"
                       placeholder=""
                       value={filterData.email}
-                      onChange={handleChangeInput}
+                      onChange={handleChangeEmailInput}
                       aria-invalid={error && error['email'] ? true: false}
                       aria-required={true}
                       longInfo={null}
