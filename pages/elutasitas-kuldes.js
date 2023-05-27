@@ -133,8 +133,8 @@ function RejectSendPage({ token }) {
                       longInfo={null}
                       info={null}
                       options={[
-                        { value: 1, label: 'Opció 1' },
-                        { value: 2, label: 'Opció 2' },
+                        { value: 1, label: 'Lakcímkártya képe alapján azonosítás sikertelen' },
+                        { value: 2, label: 'Kódkikérő nem szerepel az adatbázisban' },
                       ]}
                     />
                   </div>
