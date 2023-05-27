@@ -16,6 +16,7 @@ module.exports = async (phase, { defaultConfig }) => {
       publicHost: PUBLIC_HOST,
       apiAuth: '/admin/api/login',
       apiAccountSearch: '/admin/api/account/search',
+      apiAccountReject: '/admin/api/account/reject',
       apiSendAuthCode: '/admin/api/account/send',
       apiPrintAuthCode: '/admin/api/account/print',
     },
