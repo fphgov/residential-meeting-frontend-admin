@@ -23,7 +23,7 @@
     "@types/store": "^2.0.2"
   },
   "dependencies": {
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "bootstrap-4-grid": "^3.4.0",
     "cookies-next": "^2.1.1",
     "next": "^13.3.1",
